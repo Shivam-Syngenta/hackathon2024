@@ -11,13 +11,17 @@ import {
 import FormItem from "antd/es/form/FormItem";
 import { Option } from "antd/es/mentions";
 import moment, { Moment } from "moment";
-
-export const FormComponent = () => {
+import data from '../res/response.json'
+import { generateGraphData } from "../methods";
+export const FormComponent = ({setData}) => {
   const [lat, setLat] = useState(39.7837304);
   const [lng, setLng] = useState(-100.445882);
   const [cropName, setCropName] = useState();
   const [cropVariety, setCropVariety] = useState();
   const [plantingDate, setPlantingDate] = useState();
+  const handleButton = () =>{
+    setData(generateGraphData(data))
+  }
   function handlePlantingDate(date, dateString) {
     setPlantingDate(dateString);
   }
@@ -77,7 +81,7 @@ export const FormComponent = () => {
           format={"YYYY/MM/DD"}
         />
       </FormItem>
-      <Button type="primary">View Output</Button>
+      <Button onClick={handleButton} type="primary">View Output</Button>
     </Form>
   );
 };

@@ -9,7 +9,6 @@ import {
   NumberInputStepper,
   Select,
 } from "@chakra-ui/react";
-import { DatePicker } from "@orange_digital/chakra-datepicker";
 import React, { useState } from "react";
 import { Form, FormComponent } from "./form";
 import { Button } from "antd";
@@ -17,6 +16,7 @@ import { Graph } from "./Graph";
 import { Diseases } from "./disease";
 
 export const FirstPage = () => {
+  const [data, setData] = useState()
   return (
     <div
       style={{
@@ -27,7 +27,7 @@ export const FirstPage = () => {
         marginTop: "5vh"
       }}
     >
-      <div style={{ width: "20%" }}>
+      <div style={{ width: "24%", border:"4px solid grey", background:"var(--Neutral-neutral-00, #FFF)" }}>
         <div>
           <Heading as="h2" size="2xl">
             Input
@@ -39,7 +39,7 @@ export const FirstPage = () => {
               borderRadius: "5px",
             }}
           >
-            <FormComponent />
+            <FormComponent setData={setData} />
           </div>
         </div>
         <div></div>
@@ -55,14 +55,15 @@ export const FirstPage = () => {
           Output
         </Heading>
         <div style={{ marginTop: "5vh" }}>
-          <div style={{ margin: "auto", display: "flex" }}>
+        {data?(<div style={{ margin: "auto", display: "flex" }}>
             <div>
-              <Graph />
+              <Graph data={data} />
             </div>
             <div>
               <Diseases />
             </div>
-          </div>
+          </div>):(<div><Heading>Enter input to view Result</Heading></div>)}
+          
         </div>
       </div>
     </div>

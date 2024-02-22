@@ -11,7 +11,7 @@ function App() {
     <ChakraProvider>
       <div
         className="App"
-        style={{ padding: "5vh", height: "100%", width: "100%" }}
+        style={{ padding: "5vh", height: "100%", width: "100%", background:"#f3f4f6" }}
       >
         <div>
           <Banner />

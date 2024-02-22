@@ -828,6 +828,42 @@
         }
     },
     {
+        "features": [
+            {
+                "type": "growth_stage:Ritchie scale",
+                "value": "R6"
+            },
+            {
+                "type": "growth_stage:BBCH",
+                "value": "87"
+            },
+            {
+                "type": "start_days_since_planting:mean",
+                "value": 100
+            },
+            {
+                "type": "start_days_since_planting:median",
+                "value": 101
+            },
+            {
+                "type": "start_days_since_planting:standard_deviation",
+                "value": 0.8
+            },
+            {
+                "type": "growth_stage:start_date",
+                "value": "2023-10-20T00:00:00Z"
+            }
+        ],
+        "feature_category": "growth_stage_prediction",
+        "attributes": {
+            "warning": {
+                "targeted_years": 10,
+                "aggregated_years": 10,
+                "excluded_years": 0
+            }
+        }
+    },
+    {
         "feature_category": "best_harvest",
         "features": [
             {

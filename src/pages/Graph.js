@@ -12,7 +12,7 @@ import data from "../data/data.json";
 export const Graph = (data) => {
   console.log(data)
   return (
-    <div className="cdd_output_graph_container">
+    <div className="cdd_output_graph_container" style={{alignContent:"center", height:"100%", margin:"auto"}}>
       <ComposedChart
         width={600}
         height={400}

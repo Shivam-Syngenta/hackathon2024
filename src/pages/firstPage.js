@@ -16,27 +16,29 @@ import { Graph } from "./Graph";
 import { Diseases } from "./disease";
 
 export const FirstPage = () => {
-  const [data, setData] = useState()
+  const [data, setData] = useState();
   return (
     <div
       style={{
         height: "80%",
         width: "100%",
         display: "flex",
-        padding: "10px",
-        marginTop: "5vh"
       }}
     >
-      <div style={{ width: "24%", border:"4px solid grey", background:"var(--Neutral-neutral-00, #FFF)" }}>
+      <div
+        style={{
+          width: "24%",
+          border: "4px solid grey",
+          background: "var(--Neutral-neutral-00, #FFF)",
+          marginLeft:"6vw",
+          borderRadius:"10px"
+        }}
+      >
         <div>
-          <Heading as="h2" size="2xl">
-            Input
-          </Heading>
           <div
             style={{
-              marginTop: "10vh",
               padding: "10px",
-              borderRadius: "5px",
+              borderRadius: "5px"
             }}
           >
             <FormComponent setData={setData} />
@@ -51,20 +53,20 @@ export const FirstPage = () => {
           flexDirection: "column",
         }}
       >
-        <Heading as="h2" size="2xl">
-          Output
-        </Heading>
-        <div style={{ marginTop: "5vh" }}>
-        {data?(<div style={{ margin: "auto", display: "flex" }}>
+        {data ? (
+          <div style={{ display: "flex", height:"100%", width:"100%" }}>
             <div>
               <Graph data={data} />
             </div>
-            <div>
+            <div style={{ height:"97%", width:"30%" }}>
               <Diseases />
             </div>
-          </div>):(<div><Heading>Enter input to view Result</Heading></div>)}
-          
-        </div>
+          </div>
+        ) : (
+          <div>
+            <Heading>Enter input to view Result</Heading>
+          </div>
+        )}
       </div>
     </div>
   );

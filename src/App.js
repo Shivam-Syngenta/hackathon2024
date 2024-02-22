@@ -11,18 +11,19 @@ function App() {
     <ChakraProvider>
       <div
         className="App"
-        style={{ padding: "5vh", height: "100%", width: "100%", background:"#f3f4f6" }}
+        style={{ height: "100vh", width: "100vw", background:"#f3f4f6", display:"flex", flexDirection:"column", justifyContent:"space-evenly" }}
       >
         <div>
           <Banner />
-          <Button
+          {/* <Button
             style={{ position: "absolute", left: "2vw", top: "10vh" }}
             onClick={() => setToggle(!toggle)}
           >
-            {toggle ? "Prediction" : "Information"}
-          </Button>
+            {toggle ? "Prediction" : "Information"} */}
+          {/* </Button> */}
         </div>
-        {toggle ? <Info /> : <FirstPage />}
+        {/* {toggle ? <Info /> : } */}
+        <FirstPage />
       </div>
     </ChakraProvider>
   );

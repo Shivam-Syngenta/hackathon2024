@@ -25,14 +25,20 @@ export const Graph = (data) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="state" tickMargin={0} minTickGap={20} />
-        <YAxis dataKey="x" type="category"/>
+        <XAxis dataKey="x" tickMargin={0} minTickGap={20} />
+        <YAxis dataKey="state" type="category"/>
         <Tooltip />
         <Line
           type="monotone"
           dot={{ stroke: "#0092E4", strokeWidth: 6 }}
-          dataKey="x"
+          dataKey="state"
           stroke="#0092E4"
+        />
+        <ReferenceLine
+          type="monotone"
+          x={data?.data?.harvest}
+          stroke="green"
+          strokeDasharray="5 5"
         />
       </ComposedChart>
     </div>

@@ -3,7 +3,8 @@ import React from "react";
 import './design.css';
 import earlyWarning from '../Assets/Rectangle 488.svg';
 import Warning from '../Assets/Rectangle 494.svg';
-export const Diseases = () => {
+export const Diseases = ({data}) => {
+  console.log(data)
   return (
     <div
       style={{
@@ -12,7 +13,7 @@ export const Diseases = () => {
         display: "flex",
         flexDirection: "column",
         justifyContent:"space-between",
-        marginLeft: "20%",
+        marginLeft: "10%",
         border: "5px solid black",
         paddingTop:"10%",
         paddingBottom:"10%"
@@ -27,7 +28,7 @@ export const Diseases = () => {
           <span style={{height:"100%"}}
             className="Warning"
           >
-            <div>28 JULY 2023</div>
+            <div>{data?.early}</div>
             <div style={{display:"flex"}}><img style={{marginRight:"5px"}} src={earlyWarning} alt="error" />Early Warning</div>
           </span>
         </Tooltip>
@@ -41,7 +42,7 @@ export const Diseases = () => {
             style={{height:"100%"}}
             className="Warning"
           >
-            <div>28 JULY 2023</div>
+            <div>{data?.warning}</div>
             <div style={{display:"flex"}}><img style={{marginRight:"5px"}} src={Warning} alt="error" />Warning</div>
           </div>
         </Tooltip>

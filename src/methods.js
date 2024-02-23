@@ -1,8 +1,10 @@
 import { getMonths } from "./constants";
+import axios from "axios";
 export const generateGraphData =(data)=>{
     let curveData = [];
     let early = "";
     let warning = "";
+    let harvest = "";
     for(let i=0;i<data.length;i++){
         if(data[i].feature_category === "growth_stage_prediction"){
             let state = data[i]?.features[2]?.value;
@@ -20,9 +22,24 @@ export const generateGraphData =(data)=>{
         if(data[i].feature_category === "bydv_risk"){
             let date1 = data[i].features[0].value;
             let date2 = data[i].features[1].value;
-            early = date1.slice(8,10) + " " +  date1.slice(5,7) + " " + date1.slice(0,4);
-            warning = date2.slice(8,10) + " " +  date2.slice(5,7) + " " + date2.slice(0,4);
+            early = date1.slice(8,10) + " " +  getMonths[Number(date1.slice(5,7))-1] + " " + date1.slice(0,4);
+            warning = date2.slice(8,10) + " " +  getMonths[Number(date2.slice(5,7)-1)] + " " + date2.slice(0,4);
+        }
+        if(data[i].feature_category === "best_harvest"){
+            let date1 = data[i].features[0].value;
+            harvest = getMonths[Number(date1.slice(5,7))-1] + " " + date1.slice(8,10);
         }
     }
-    return {curveData:curveData, early:early, warning:warning}
+    return {curveData:curveData, early:early, warning:warning, harvest:harvest}
+}
+export const apiCall = (data)=>{
+    let dataRes = []
+    axios.get('localhost:5000/predictions')
+      .then(response => {
+        dataRes = response?.data?.results[0]?.predictions
+      })
+      .catch(error => {
+        console.error(error);
+      });
+    return dataRes
 }

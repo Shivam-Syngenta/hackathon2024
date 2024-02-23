@@ -11,12 +11,12 @@ export const Diseases = ({data}) => {
     <div
       style={{
         height:"100%",
-        width: "100%",
+        width: "115%",
         display: "flex",
         flexDirection: "column",
         justifyContent:"space-between",
         marginLeft: "10%",
-        border: "5px solid black",
+        border: "2px solid grey",
         paddingTop:"10%",
         paddingBottom:"10%"
       }}

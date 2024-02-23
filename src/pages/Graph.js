@@ -17,7 +17,7 @@ export const Graph = ({data}) => {
     <div className="cdd_output_graph_container" style={{alignContent:"center", height:"100%", margin:"auto"}}>
       <ComposedChart
         width={600}
-        height={400}
+        height={450}
         data={graph.curveData}
         margin={{
           top: 20,
@@ -27,7 +27,11 @@ export const Graph = ({data}) => {
         }}
       >
         <CartesianGrid strokeDasharray="3 3" />
-        <XAxis dataKey="x" tickMargin={0} minTickGap={20} />
+        <XAxis dataKey="x" tickMargin={0} minTickGap={20} label={{
+            value: "Growth Stage Prediction",
+            position: "insideBottom",
+            offset: -15,
+          }}/>
         <YAxis dataKey="state" type="category"/>
         <Tooltip />
         <Line

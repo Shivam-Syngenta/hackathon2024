@@ -67,24 +67,27 @@ export const FirstPage = () => {
           Output
         </div>
         {data ? (
-          <div style={{ display: "flex", height: "100%", width: "100%" }}>
-            <div>
-              <Graph data={data} />
-              <div
+          <div style={{ display: "flex", height: "100%", width: "100%"}}>
+
+            <div style={{marginTop: "20vh"}} >
+            <div
                 style={{
-                  border: "2px solid black",
+                  border: "2px solid grey",
                   borderRadius: "10%",
                   fontSize: "20px",
                   textAlign: "center",
                   minWidth: "300px",
                   marginTop:"-20vh",
+                  marginBottom:"3vh",
                   marginLeft:"3vw",
                   padding:"10px"
                 }}
               >
-                <div>Optimal Harvest Date</div>
+                <div style={{ fontWeight: "600", color: "black"}}>Optimal Harvest Date</div>
                 <div> {generateGraphData(data)?.harvest}</div>
               </div>
+              <Graph data={data} />
+
             </div>
             <div style={{ height: "97%", width: "30%" }}>
               <Diseases data={data} />

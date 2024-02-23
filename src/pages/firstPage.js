@@ -95,7 +95,7 @@ export const FirstPage = () => {
           </div>
         ) : (
           <div>
-            <Heading>Enter input to view Result</Heading>
+            <Heading fontFamily="Roboto" fontWeight="700" color="black" marginTop="30vh">Enter input to view result</Heading>
           </div>
         )}
       </div>

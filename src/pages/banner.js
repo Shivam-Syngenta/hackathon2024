@@ -19,10 +19,10 @@ export const Banner = () => {
           width: "100px",
           height: "100px",
           border: "5px solid black",
-          marginRight: "5vw",
+          marginRight: "2vw",
         }}
       />
-      <Heading as="h2" size="4xl" noOfLines={1}>
+      <Heading as="h2" size="4xl" noOfLines={1} fontFamily="Roboto" fontWeight="700" color="#4F7251" marginTop='2vh'>
         CropGuru
       </Heading>
     </div>

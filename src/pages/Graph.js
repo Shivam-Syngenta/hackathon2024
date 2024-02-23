@@ -10,7 +10,7 @@ import {
   YAxis,
 } from "recharts";
 //import data from "../data/data.json";
-export const Graph = (data) => {
+export const Graph = ({data}) => {
   console.log(data)
   let graph = generateGraphData(data)
   return (

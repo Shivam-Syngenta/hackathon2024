@@ -3,7 +3,9 @@ import React from "react";
 import './design.css';
 import earlyWarning from '../Assets/Rectangle 488.svg';
 import Warning from '../Assets/Rectangle 494.svg';
+import { generateGraphData } from "../methods";
 export const Diseases = ({data}) => {
+  let dis = generateGraphData(data)
   console.log(data)
   return (
     <div
@@ -28,7 +30,7 @@ export const Diseases = ({data}) => {
           <span style={{height:"100%"}}
             className="Warning"
           >
-            <div>{data?.early}</div>
+            <div>{dis?.early}</div>
             <div style={{display:"flex"}}><img style={{marginRight:"5px"}} src={earlyWarning} alt="error" />Early Warning</div>
           </span>
         </Tooltip>
@@ -42,7 +44,7 @@ export const Diseases = ({data}) => {
             style={{height:"100%"}}
             className="Warning"
           >
-            <div>{data?.warning}</div>
+            <div>{dis?.warning}</div>
             <div style={{display:"flex"}}><img style={{marginRight:"5px"}} src={Warning} alt="error" />Warning</div>
           </div>
         </Tooltip>

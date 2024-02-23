@@ -27,7 +27,7 @@ export const generateGraphData =(data)=>{
         }
         if(data[i].feature_category === "best_harvest"){
             let date1 = data[i].features[0].value;
-            harvest = getMonths[Number(date1.slice(5,7))-1] + " " + date1.slice(8,10);
+            harvest = date1.slice(8,10) + " " + getMonths[Number(date1.slice(5,7))-1] + " " + date1.slice(0, 4);
         }
     }
     return {curveData:curveData, early:early, warning:warning, harvest:harvest}

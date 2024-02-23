@@ -1,4 +1,5 @@
 import React from "react";
+import { generateGraphData } from "../methods";
 import {
   CartesianGrid,
   ComposedChart,
@@ -8,15 +9,16 @@ import {
   Tooltip,
   YAxis,
 } from "recharts";
-import data from "../data/data.json";
+//import data from "../data/data.json";
 export const Graph = (data) => {
   console.log(data)
+  let graph = generateGraphData(data)
   return (
     <div className="cdd_output_graph_container" style={{alignContent:"center", height:"100%", margin:"auto"}}>
       <ComposedChart
         width={600}
         height={400}
-        data={data.data.curveData}
+        data={graph.curveData}
         margin={{
           top: 20,
           right: 0,

@@ -32,11 +32,14 @@ export const generateGraphData =(data)=>{
     }
     return {curveData:curveData, early:early, warning:warning, harvest:harvest}
 }
-export const apiCall = (data)=>{
+export const apiCall = (data, setData)=>{
     let dataRes = []
-    axios.get('localhost:5000/predictions')
+    axios.post('http://0.0.0.0:5000/predictions', data)
       .then(response => {
         dataRes = response?.data?.results[0]?.predictions
+        console.log(dataRes)
+        setData(dataRes)
+        return dataRes
       })
       .catch(error => {
         console.error(error);
